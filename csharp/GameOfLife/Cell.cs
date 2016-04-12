@@ -9,10 +9,12 @@ namespace GameOfLife
     public class Cell
     {
         public bool status { get; set; }
+        public int neighbors { get; set; }
 
         public Cell()
         {
             status = false;
+            neighbors = 0;
         }
     }
 }
