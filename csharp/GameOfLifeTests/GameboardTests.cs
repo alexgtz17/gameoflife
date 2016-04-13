@@ -138,5 +138,17 @@ namespace GameOfLifeTests
             Assert.AreEqual(actual_two, expected);
             Assert.AreEqual(actual_three, expected);
         }
+        [TestMethod]
+        public void GameboardTostringIsNotNull()
+        {
+            // Arrange
+            Gameboard gameboard = new Gameboard();
+
+            // Act
+            var expected = gameboard.convertGridToString();
+
+            // Assert
+            Assert.IsNotNull(expected);
+        }
     }
 }

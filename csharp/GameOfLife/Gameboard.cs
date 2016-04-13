@@ -105,6 +105,29 @@ namespace GameOfLife
             this.actualStatusGrid = nextGenGameboard.actualStatusGrid;
         }
 
+        public String convertGridToString()
+        {
+            StringBuilder myStringbuilder = new StringBuilder();
+
+            for (int row = 0; row < 10; row++)
+            {
+                for (int col = 0; col < 10; col++)
+                {
+                    if ( this.actualStatusGrid[row, col].status )
+                    {
+                        myStringbuilder.Append("O");
+                    }
+                    else
+                    {
+                        myStringbuilder.Append(" ");
+                    }
+                }
+                myStringbuilder.AppendLine();
+            }
+
+            return myStringbuilder.ToString();
+        }
+
         int mod(int x, int m)
         {
             return (x % m + m) % m;
