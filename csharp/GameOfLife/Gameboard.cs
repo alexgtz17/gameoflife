@@ -72,6 +72,39 @@ namespace GameOfLife
             }
         }
 
+        public void nextGen()
+        {
+
+            var nextGenGameboard = new Gameboard();
+
+            for (int row = 0; row < 10; row++)
+            {
+                for (int col = 0; col < 10; col++)
+                {
+                    int count = this.actualStatusGrid[row, col].neighbors;
+                    bool living = this.actualStatusGrid[row, col].status;
+
+                    if (living && count < 2)
+                    {
+                        nextGenGameboard.actualStatusGrid[row, col].status = false;
+                    }
+                    if (living && (count == 2 || count == 3))
+                    {
+                        nextGenGameboard.actualStatusGrid[row, col].status = true;
+                    }
+                    if (living && count > 3)
+                    {
+                        nextGenGameboard.actualStatusGrid[row, col].status = false;
+                    }
+                    if (!living && count == 3)
+                    {
+                        nextGenGameboard.actualStatusGrid[row, col].status = true;
+                    }
+                }
+            }
+            this.actualStatusGrid = nextGenGameboard.actualStatusGrid;
+        }
+
         int mod(int x, int m)
         {
             return (x % m + m) % m;
