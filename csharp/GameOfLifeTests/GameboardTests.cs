@@ -78,12 +78,17 @@ namespace GameOfLifeTests
             var actual_one = gameboard.actualStatusGrid[1, 3].status;
             var actual_two = gameboard.actualStatusGrid[2, 3].status;
             var actual_three = gameboard.actualStatusGrid[3, 3].status;
+            var actual_four = gameboard.actualStatusGrid[2, 2].status;
+            var actual_five = gameboard.actualStatusGrid[2, 4].status;
             var expected = true;
+            var expected_false = false;
 
             // Assert
             Assert.AreEqual(actual_one, expected);
             Assert.AreEqual(actual_two, expected);
             Assert.AreEqual(actual_three, expected);
+            Assert.AreEqual(actual_four, expected_false);
+            Assert.AreEqual(actual_five, expected_false);
         }
         [TestMethod]
         public void GameboardCreateNextGridCompleteBlinker()
